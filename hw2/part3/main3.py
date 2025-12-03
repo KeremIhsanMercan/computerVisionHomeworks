@@ -14,7 +14,7 @@ def extract_between(screenshot, x1, y1, x2, y2):
 
 SHAPE_TO_KEY = {
     "Triangle": "a",
-    "Square": "b",
+    "Square": "s",
     "Hexagon": "f",
     "Star": "d",
 }
@@ -111,7 +111,7 @@ def main() -> None:
 
             cropped_image = extract_between(myScreenshot, 0, 810/1080, 1, 1)
 
-            cropped_area = extract_between(cropped_image, 0.55, 0, 0.72, 1)
+            cropped_area = extract_between(cropped_image, 0.58, 0, 0.75, 1)
             cropped_area.save('ss/cropped.png')
 
             shape = detect_black_shape_from_whitebackground_with_minimum_eigenvalue(cropped_area)
