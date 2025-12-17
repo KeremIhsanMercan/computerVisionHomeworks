@@ -133,7 +133,7 @@ def track_right_hand(frames_dir: str = "frames", output_dir: str = "tracked_fram
             future_gray = cv2.cvtColor(future_frame, cv2.COLOR_BGR2GRAY)
 
         # Use plain single-step LK (disable future blending for stability)
-        lk_params = dict(winSize=(15, 15), maxLevel=3, criteria=(cv2.TERM_CRITERIA_EPS | cv2.TERM_CRITERIA_COUNT, 30, 0.01))
+        lk_params = dict(winSize=(25, 25), maxLevel=3, criteria=(cv2.TERM_CRITERIA_EPS | cv2.TERM_CRITERIA_COUNT, 30, 0.01))
         next_pt, st, _ = cv2.calcOpticalFlowPyrLK(prev_gray, curr_gray, prev_pt, None, **lk_params)
         if st[0] != 1 or next_pt is None:
             # Re-detect on the current frame if tracking is lost
